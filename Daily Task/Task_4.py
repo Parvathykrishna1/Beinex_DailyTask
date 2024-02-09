@@ -1,5 +1,5 @@
-1) Write python programs , which accept two inputs and perform the following arithmetic operations
-	      i)   Addition (+)
+1)Write python programs , which accept two inputs and perform the following arithmetic operations
+	i)   Addition (+)
         ii)   Subtraction (-)
         iii)  Multiplication (*)
         iv)   Division (/)
@@ -35,8 +35,7 @@ else:
     print("Invalid Operator")    
 
 
-2)Python Program to replicate bank transaction: min balance 500, ask user to the amount to withdraw, 
-  print the balance amount after withdrawal, if user enters an amount greater than balance: print:: insufficient balance. 
+2)Python Program to replicate bank transaction: min balance 500, ask user to the amount to withdraw, print the balance amount after withdrawal, if user enters an amount greater than balance: print:: insufficient balance. 
 min_balance=500
 current_balance = 5000
 withdrawal_amount=int(input("Enter the amount to withdraw:"))
@@ -174,10 +173,10 @@ while(b<=n):
 
 13.print the following patterns
 (a)
-	         *
-           * *
-          * * *
-         * * * *
+	*
+       * *
+      * * *
+     * * * *
 k=2*3
 for i in range(1,5):
     for k in range(1,k+1):
@@ -188,9 +187,9 @@ for i in range(1,5):
     print()   
 
 (b)	o
-		1 2
-		3 4 5
-		6 7 8 9
+	1 2
+	3 4 5
+	6 7 8 9
 n=0
 for i in range(1,5):
     for j in range(1,i+1):
@@ -200,9 +199,9 @@ for i in range(1,5):
 
 
 (c)	o
-		1 1
-		2 2 2
-		3 3 3 3
+	1 1
+	2 2 2
+	3 3 3 3
 for i in range(0,4):
     for j in range(0,i+1):
         print(i,end="   ")
@@ -210,9 +209,9 @@ for i in range(0,4):
 
 
 (d)	*
-		* *
-		* * *
-		* * * *   
+	* *
+	* * *
+	* * * *   
 for i in range(1,5):
     for j in range(1,i+1):
             print("*",end="  ")
