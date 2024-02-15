@@ -1,29 +1,35 @@
 FUNCTIONS – Task-6 
 1.Write a Python program to create a lambda function that adds 15 to a given number passed in as an argument, also create a lambda function that multiplies argument x with argument y and prints the result.
 add = lambda a: a+15
-print(add(3))
+n=int(input("Enter a number:"))
+result = add(n)
+print("Given numner:",n)
+print("Given number after adding 15:",result)
+
 
 mult = lambda x,y: x*y
-print(mult(2,6))
+n1=int(input("Enter the first number:"))
+n2=int(input("Enter the second number:"))
+multiply = mult(n1,n2)
+print("Multiplication of",n1,"and",n2,"is",multiply)
 
 
 2.Write a Python program to create a function that takes one argument, and that argument will be multiplied with an unknown given number.
-def multiply(n):
-    return lambda x:x*n
+def multiply(x):
+    unknown_num = 4
+    return lambda x: x * unknown_num
 
-r=multiply(3)
-print(r(5))
-
-r=multiply(4)
-print(r(5))
-
-r=multiply(5)
-print(r(5))
+n = int(input("Enter a number: "))
+mult = multiply(n)
+result = mult(n)
+print("Given number:", n)
+print("Final result after multiplied with an unknown number:", result)
 
 3.Write a Python program to find if a given string starts with a given character using Lambda.
 starts_with = lambda s: True if s.startswith('A') else False 
 print(starts_with('Amazon'))
 print(starts_with('Hello'))
+print(starts_with('python'))
 
 4.Write a Python program to extract year, month, date and time using Lambda.
 Sample Output:
@@ -40,12 +46,12 @@ print(now)
 year = lambda x: x.year
 month = lambda x:x.month
 day = lambda x:x.day
-t = lambda x:x.time()
+tm = lambda x:x.time()
 
-print(year(now))
-print(month(now))
-print(day(now))
-print(t(now))
+print("Year:",year(now))
+print("Month:"month(now))
+print("Day:"day(now))
+print("Time:"tm(now))
 
 
 5.Write a Python program to check whether a given string is a number or not using Lambda.
@@ -64,13 +70,12 @@ Fibonacci series upto 5:
 [0, 1, 1, 2, 3]
 Fibonacci series upto 6:
 [0, 1, 1, 2, 3, 5]
-Lambda function to generate Fibonacci series up to n
-Lambda function to generate Fibonacci series up to n
-fibonacci = lambda n: [0, 1] if n == 2 else fibonacci(n - 1) + [fibonacci(n - 1)[-1] + fibonacci(n - 1)[-2]]
+ 
+fibonacci_series = lambda n: [0, 1] if n == 2 else fibonacci_series(n - 1) + [fibonacci_series(n - 1)[-1] + fibonacci_series(n - 1)[-2]]
 
 n = int(input("Enter the range: "))
 print("Fibonacci series upto", n, ":")
-print(fibonacci(n))
+print(fibonacci_series(n))
 
 
 7.Write a Python program to find palindromes in a given list of strings using Lambda.
@@ -86,14 +91,13 @@ print("Palindromes in the given list:", p)
 Original list: [2, 4, 6, 9, 11]
 Given number: 2
 Result:
-4	8 12 18 22
-
-l = [1, 2, 3, 4, 5]
-given_number = 2
+4 8 12 18 22
+ 
 multiply = lambda x: x * given_number
 
+l = [1, 2, 3, 4, 5]        
+given_number = int(input("Enter a number that multiplied with each number in a list:"))            
 result = list(map(multiply, l))
-
 print("Original list:", l)
 print("Given number:", given_number)
 print("Result:", result)
@@ -112,8 +116,8 @@ print("Maximum values in the  list using lambda:",max_val(l))
 10.Create a Python module (a separate .py file) that contains a function to calculate the area of a rectangle. Then, in another Python script, import the module and use the function to calculate the area of a rectangle with specific dimensions.
 #area.py module is used in this code
 import area
-length = 5
-width = 6
+length = int(input("Enter the length:"))
+width = int(input("Enter the width:"))
 A = area.calculate_area(length, width)
 print("Area of the rectangle:", A)
 
