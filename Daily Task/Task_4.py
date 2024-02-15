@@ -44,8 +44,8 @@ if withdrawal_amount>current_balance:
 else:
     current_balance -= withdrawal_amount
     if current_balance<min_balance:
-        print("Warning: Your balance is below the minimum required balance.")
-    print("Balance after withdrawal:", current_balance) 
+        print("Warning: Your bank balance is below the minimum required balance.")
+    print("Balance Amount:", current_balance) 
 
    
 3)Print the greatest of the 3 numbers taken as input, print equal if all three numbers are the same
@@ -55,24 +55,24 @@ n3=int(input("Enter the third number:"))
 if n1==n2==n3:
     print("Three numbers are same")
 else:
-    max_num = max(n1, n2, n3)
-    print("Greatest number:", max_num)
+    n = max(n1, n2, n3)
+    print("Greatest number:", n)
 
 4)Python program to check the number taken as an input is even or odd,print invalide input if user enters anything other than integers
 n=int(input("Enter a number:"))
 if n%2==0:
-    print("Even number")
+    print(n," is an Even number")
 elif n%2!=0:
-    print("Odd number")
+    print(n," is an Odd number")
 else:
-    print("Invalid Input")     
+    print("Invalid input")     
    
 
 5)Python program to check the score from a student ,print grades as A+ if score >= 90,A if 80 or above, B+ if 70 or above and so on... 
 print failed if the score is below 50, if score > 100 print invalid
 score=int(input("Enter the score:"))
 if score > 100:
-    print("Invalid")
+    print("Invalid score")
 elif score >= 90:
     print("Grade: A+")
 elif score >= 80:
@@ -90,7 +90,7 @@ else:
 6)Python program to print all even/odd numbers in the range given by user
 start=int(input("Enter the starting number of range:"))
 end=int(input("Enter the ending number of range:"))
-op=input("Enter even or odd :")
+op=input("Enter "even" or "odd" number:")
 if op=="even":
     for i in range(start,end):
         if i%2==0:
@@ -100,16 +100,16 @@ elif op=="odd":
         if i!=2:
             print(i,end=" ")
 else:
-    print("Invalid") 
+    print("Invalid input") 
                           
 7)Python program to print the multiplication table of any number(number should be taken as input and user decides the end limit of the table)
 n = int(input("Enter a number:"))
-limit=int(input("Enter the end limit:"))
-for i in range(limit):
+print("Multiplication table of ",n)
+end_limit=int(input("Enter the end limit:"))
+for i in range(end_limit):
     p=n*i
     print(n,"*",i,"=",p)
-
-    
+ 
 8)Find the factorial of a number taken as input using for loop
 n= int(input("Enter a number:"))
 f=1
@@ -132,22 +132,22 @@ print("Factorial of",n,"is",f)
 start = int(input("Enter the starting number of the range: "))
 end = int(input("Enter the ending number of the range: "))
 sum=0
-for i in range(start,end+1):
+for i in range(start,end):
     if i%2==0:
         sum+=i
-print("Sum of even numbers:",sum)       
+print("Sum of all the even numbers in the given range:",sum)       
 
 
 11)Find the sum of all odd numbers between the rane given by user using while loop
 start = int(input("Enter the starting number of the range: "))
 end = int(input("Enter the ending number of the range: "))
 sum=0
-num = start
-while num <= end:
-    if num % 2 != 0:
-        sum += num
-    num += 1
-print("Sum of odd numbers:",sum)       
+n = start
+while n <= end:
+    if n % 2 != 0:
+        sum += n
+    n += 1
+print("Sum of all odd numbers in the given range:",sum)       
 
 
 12)Print first 10 fibonacci numbers using 'for' and 'while' loops
@@ -157,9 +157,9 @@ a,b=0,1
 print(a)
 print(b)
 for i in range(1,n):
-    value = a + b
-    print(value)
-    a,b=b,value
+    temp = a + b
+    print(temp)
+    a,b=b,temp
 
 # Using While loop
 n=int(input("Enter the series range:"))
@@ -169,7 +169,6 @@ b=1
 while(b<=n):
     print(b)
     a,b=b,a+b
-
 
 13.print the following patterns
 (a)
