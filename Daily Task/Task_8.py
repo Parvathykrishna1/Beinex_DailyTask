@@ -1,7 +1,8 @@
 1.Write a Python program to multiples all the items in a list.
-import math
 list_data = [1,4,9,12]
-total = math.prod([x for x in list_data])
+total = 1
+for x in list_data:
+	total *= x
 print("Given list:",list_data)    
 print("Product of all the items in the given list:",total)    
 
