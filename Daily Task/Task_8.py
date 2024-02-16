@@ -5,23 +5,18 @@ total = math.prod([x for x in list_data])
 print("Given list:",list_data)    
 print("Product of all the items in the given list:",total)    
 
-
 2.Write a Python program to remove duplicates from a list,
 list1= [1,4,9,1,2,3,9]
 list2=[]
 [list2.append(x) for x in list1 if x not in list2]
 print("Final list after removes all the duplicates:",list2)
 
-   
 3.Write a Python program to count the number of strings where the string length is 2 or more.
 	Sample List : ['abc', 'xyz', 'aba', '1']
 	Expected Result : 3
-list_data = ['abc', 'xyz', 'aba', '1','jkl']
-count = 0
-for i in list_data:
-     if len(i)>=2:
-          count+=1
-print("Count the number of strings where the string length is 2 or more:",count)          
+list_data = ['abc', 'xyz', 'aba', '1', 'jkl']
+count = sum(1 for string in list_data if len(string) >= 2)
+print("Count the number of strings where the string length is 2 or more:", count)
 
 4.Write a Python program to print the numbers of a specified list after removing even numbers from it
 	list = [24,34,53,65,78,93,23,42]
