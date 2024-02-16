@@ -16,7 +16,7 @@ print("Final list after removes all the duplicates:",list2)
 	Sample List : ['abc', 'xyz', 'aba', '1']
 	Expected Result : 3
 list_data = ['abc', 'xyz', 'aba', '1', 'jkl']
-count = sum(1 for string in list_data if len(string) >= 2)
+count = sum(1 for x in list_data if len(x) >= 2)
 print("Count the number of strings where the string length is 2 or more:", count)
 
 4.Write a Python program to print the numbers of a specified list after removing even numbers from it
