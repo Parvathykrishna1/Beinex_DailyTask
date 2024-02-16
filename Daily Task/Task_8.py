@@ -9,9 +9,7 @@ print("Product of all the items in the given list:",total)
 2.Write a Python program to remove duplicates from a list,
 list1= [1,4,9,1,2,3,9]
 list2=[]
-for i in list1:
-    if i not in list2:
-        list2.append(i)
+[list2.append(x) for x in list1 if x not in list2]
 print("Final list after removes all the duplicates:",list2)
 
    
