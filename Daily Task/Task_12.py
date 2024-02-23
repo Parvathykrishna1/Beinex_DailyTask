@@ -10,62 +10,62 @@ Define constructor for each of them to assign the necessary parameters required 
 Define the area method for each of the classes. When invoked it Should return the area of the shape by calculating it.
 Create an object for each of the subclasses and call the area method on the objects.    """
 
-# from abc import ABC, abstractmethod
-# import math
+from abc import ABC, abstractmethod
+import math
 
 
-# class Shape(ABC):
-#     @abstractmethod
-#     def area(self):
-#         raise NotImplementedError(
-#             "Oops! Looks like this shape is a mystery! Can't calculate the area until it's defined."
-#         )
+class Shape(ABC):
+    @abstractmethod
+    def area(self):
+        raise NotImplementedError(
+            "Oops! Looks like this shape is a mystery! Can't calculate the area until it's defined."
+        )
 
 
-# class Triangle(Shape):
-#     def __init__(self, base, height):
-#         self.base = base
-#         self.height = height
+class Triangle(Shape):
+    def __init__(self, base, height):
+        self.base = base
+        self.height = height
 
-#     def area(self):
-#         return 0.5 * self.base * self.height
-
-
-# class Square(Shape):
-#     def __init__(self, side):
-#         self.side = side
-
-#     def area(self):
-#         return self.side**2
+    def area(self):
+        return 0.5 * self.base * self.height
 
 
-# class Pentagon(Shape):
-#     def __init__(self, side):
-#         self.side = side
+class Square(Shape):
+    def __init__(self, side):
+        self.side = side
 
-#     def area(self):
-#         return 0.25 * math.sqrt(5 * (5 + 2 * math.sqrt(5))) * self.side**2
-
-
-# class Circle(Shape):
-#     def __init__(self, radius):
-#         self.radius = radius
-
-#     def area(self):
-#         return math.pi * self.radius**2
+    def area(self):
+        return self.side**2
 
 
-# triangle = Triangle(5, 8)
-# print("Area of triangle:", triangle.area())
+class Pentagon(Shape):
+    def __init__(self, side):
+        self.side = side
 
-# square = Square(4)
-# print("Area of square:", square.area())
+    def area(self):
+        return 0.25 * math.sqrt(5 * (5 + 2 * math.sqrt(5))) * self.side**2
 
-# pentagon = Pentagon(6)
-# print("Area of pentagon:", pentagon.area())
 
-# circle = Circle(5)
-# print("Area of circle:", circle.area())
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+
+    def area(self):
+        return math.pi * self.radius**2
+
+
+triangle = Triangle(5, 8)
+print("Area of triangle:", triangle.area())
+
+square = Square(4)
+print("Area of square:", square.area())
+
+pentagon = Pentagon(6)
+print("Area of pentagon:", pentagon.area())
+
+circle = Circle(5)
+print("Area of circle:", circle.area())
 
 
 """Task 2
@@ -89,33 +89,33 @@ No need to consider special characters for now.
 Expected output for the string "ABcD1293Z" is "cdEf2304b"     """
 
 
-# class Cypher:
-#     def __init__(self, input_string):
-#         self.input_string = input_string
+class Cypher:
+    def __init__(self, input_string):
+        self.input_string = input_string
 
-#     @classmethod
-#     def convert(cls, input_string):
-#         cypher = ""
-#         for char in input_string:
-#             if char.isdigit():
-#                 cypher += str((int(char) + 1) % 10)
-#             elif char.isalpha():
-#                 shifted_char = chr((ord(char.lower()) - ord("a") + 2) % 26 + ord("a"))
-#                 cypher += (
-#                     shifted_char.upper() if char.isupper() else shifted_char.lower()
-#                 )
-#             else:
-#                 cypher += char
-#         return cypher
+    @classmethod
+    def convert(cls, input_string):
+        cypher = ""
+        for char in input_string:
+            if char.isdigit():
+                cypher += str((int(char) + 1) % 10)
+            elif char.isalpha():
+                shifted_char = chr((ord(char.lower()) - ord("a") + 2) % 26 + ord("a"))
+                cypher += (
+                    shifted_char.upper() if char.isupper() else shifted_char.lower()
+                )
+            else:
+                cypher += char
+        return cypher
 
-#     def reveal_secret(self):
-#         return self.convert(self.input_string)
+    def reveal_secret(self):
+        return self.convert(self.input_string)
 
 
-# input_str = input("Enter the string: ")
-# cypher = Cypher(input_str)
+input_str = input("Enter the string: ")
+cypher = Cypher(input_str)
 
-# secret_message = cypher.reveal_secret()
+secret_message = cypher.reveal_secret()
 
-# print("Original Message:", input_str)
-# print("Secret Cypher:", secret_message)
+print("Original Message:", input_str)
+print("Secret Cypher:", secret_message)
