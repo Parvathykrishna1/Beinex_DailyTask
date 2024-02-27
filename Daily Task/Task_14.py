@@ -31,7 +31,7 @@ Use a `with` block to execute the logic.    """
 import os
 
 
-class TextFileHandler:
+class TextFileHandling:
     def __enter__(self):
         self.file = open("f1.txt", "w")
         return self.file
@@ -42,7 +42,7 @@ class TextFileHandler:
             os.remove("f1.txt")
 
 
-with TextFileHandler() as file:
+with TextFileHandling() as file:
     try:
         data = input("Enter the text: ")
         file.write(data)
