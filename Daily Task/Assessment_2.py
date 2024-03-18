@@ -557,21 +557,19 @@ while True:
         x = int(input("Enter First Value: "))
         y = int(input("Enter Second Value: "))
 
-        if y == 0:
-            raise ZeroDivisionError("Second Number Should Not Be Zero")
-
         result = x / y
         print("Result:", result)
         break
 
-    except ValueError as e:
-        print("Pls Input Integer Only:", e)
+    except ValueError:
+        print("Pls Input Integer Only")
 
-    except ZeroDivisionError as e:
-        print(e)
+    except ZeroDivisionError:
+        print("Second Number Should Not Be Zero")
 
     except Exception as e:
         print("Other Error:", e)
+
 
 23. The program takes input from the user and checks if whether the input value is an integer or not, if the input value is 
 not an integer then the program will through a Type exception.
