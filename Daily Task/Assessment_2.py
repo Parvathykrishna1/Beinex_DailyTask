@@ -598,73 +598,73 @@ while True:
 
 
 24.Implement the game rock, paper, scissors
-Rock smashes scissors.
-Paper covers rock.
-Scissors cut paper.
-
-def determine_winner(player1_choice, player2_choice):
-    if player1_choice == player2_choice:
-        return "It's a tie!"
-    elif (player1_choice == 'rock' and player2_choice == 'scissors') or \
-         (player1_choice == 'paper' and player2_choice == 'rock') or \
-         (player1_choice == 'scissors' and player2_choice == 'paper'):
-        return "Player 1 wins!"
-    else:
-        return "Player 2 wins!"
-
-def main():
-    choices = ['rock', 'paper', 'scissors']
-
-    while True:
-        player1_choice = input("Player 1, enter your choice (rock, paper, or scissors): ").lower()
-        if player1_choice not in choices:
-            print("Invalid choice. Please enter either 'rock', 'paper', or 'scissors'.")
-            continue
-
-        player2_choice = input("Player 2, enter your choice (rock, paper, or scissors): ").lower()
-        if player2_choice not in choices:
-            print("Invalid choice. Please enter either 'rock', 'paper', or 'scissors'.")
-            continue
-
-        print(determine_winner(player1_choice, player2_choice))
-
-        play_again = input("Do you want to play again? (yes/no): ").lower()
-        if play_again != 'yes':
-            break
-
-main()
+    Rock smashes scissors.
+    Paper covers rock.
+    Scissors cut paper.
+    
+    def determine_winner(player1_choice, player2_choice):
+        if player1_choice == player2_choice:
+            return "It's a tie!"
+        elif (player1_choice == 'rock' and player2_choice == 'scissors') or \
+             (player1_choice == 'paper' and player2_choice == 'rock') or \
+             (player1_choice == 'scissors' and player2_choice == 'paper'):
+            return "Player 1 wins!"
+        else:
+            return "Player 2 wins!"
+    
+    def main():
+        choices = ['rock', 'paper', 'scissors']
+    
+        while True:
+            player1_choice = input("Player 1, enter your choice (rock, paper, or scissors): ").lower()
+            if player1_choice not in choices:
+                print("Invalid choice. Please enter either 'rock', 'paper', or 'scissors'.")
+                continue
+    
+            player2_choice = input("Player 2, enter your choice (rock, paper, or scissors): ").lower()
+            if player2_choice not in choices:
+                print("Invalid choice. Please enter either 'rock', 'paper', or 'scissors'.")
+                continue
+    
+            print(determine_winner(player1_choice, player2_choice))
+    
+            play_again = input("Do you want to play again? (yes/no): ").lower()
+            if play_again != 'yes':
+                break
+    
+    main()
 
 
 25.  Quiz Game in Python
 
-questions = [
-    {"prompt": "What color is the sky?\n(a) Blue\n(b) Red\n(c) Green\n", "answer": "a"},
-    {"prompt": "What animal says 'meow'?\n(a) Dog\n(b) Cat\n(c) Bird\n", "answer": "b"},
-    {"prompt": "How many legs does a cat have?\n(a) 2\n(b) 4\n(c) 6\n", "answer": "b"},
-]
-
-
-def run_quiz(questions):
-    score = 0
-    for question in questions:
-        print(question["prompt"])
-        answer = input("Enter your answer (a, b, or c): ").lower()
-        if answer == question["answer"]:
-            score += 1
-            print("Correct!")
+    questions = [
+        {"prompt": "What color is the sky?\n(a) Blue\n(b) Red\n(c) Green\n", "answer": "a"},
+        {"prompt": "What animal says 'meow'?\n(a) Dog\n(b) Cat\n(c) Bird\n", "answer": "b"},
+        {"prompt": "How many legs does a cat have?\n(a) 2\n(b) 4\n(c) 6\n", "answer": "b"},
+    ]
+    
+    
+    def run_quiz(questions):
+        score = 0
+        for question in questions:
+            print(question["prompt"])
+            answer = input("Enter your answer (a, b, or c): ").lower()
+            if answer == question["answer"]:
+                score += 1
+                print("Correct!")
+            else:
+                print("Incorrect!")
+        print(f"You got {score}/{len(questions)} correct.")
+    
+        percentage_score = (score / len(questions)) * 100
+    
+        if percentage_score >= 70:
+            print("Great job! You have a strong knowledge.")
+        elif 50 <= percentage_score < 70:
+            print("Not bad! You have some knowledge.")
         else:
-            print("Incorrect!")
-    print(f"You got {score}/{len(questions)} correct.")
-
-    percentage_score = (score / len(questions)) * 100
-
-    if percentage_score >= 70:
-        print("Great job! You have a strong knowledge.")
-    elif 50 <= percentage_score < 70:
-        print("Not bad! You have some knowledge.")
-    else:
-        print("Keep learning! You can do even better.")
-
-
-print("Welcome to the Kids Quiz")
-run_quiz(questions)
+            print("Keep learning! You can do even better.")
+    
+    
+    print("Welcome to the Kids Quiz")
+    run_quiz(questions)
