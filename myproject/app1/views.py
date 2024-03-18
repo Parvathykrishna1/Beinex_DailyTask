@@ -9,20 +9,29 @@ from .forms import CategoryForm, ModelProductForm, RegularProductForm
 # Create your views here.
 def user_login(request):
     if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-        user = authenticate(request, username = username, password = password)
+        user = request.POST.get('username')
+        pw = request.POST.get('password')
+        user = authenticate(request, username=user, password=pw)
         if user is not None:
             login(request, user)
-            return redirect('cart')
+            success_logins = request.COOKIES.get('success_logins', 0)
+            success_logins = int(success_logins) + 1
+            response = redirect('itemslist')
+            response.set_cookie('success_logins', success_logins)
+            return response
         else:
-            return render(request, 'login.html', {'error_message':'Invalid login credentials'})
-    return render(request, 'login.html')
+            request.session.setdefault('failed_login_attempts', 0)
+            request.session['failed_login_attempts'] += 1
+    return render(request, 'login.html', {'failed_login_attempts': request.session.get('failed_login_attempts')})
 
-@login_required
 def user_logout(request):
     logout(request)
     return redirect('login')
+
+@login_required
+def item_list(request):
+    items = Item.objects.all()
+    return render(request, 'itemslist.html', {'items': items})
 
 def home(request):
     return render(request, 'home.html')
