@@ -16,7 +16,7 @@ def user_login(request):
             login(request, user)
             success_logins = request.COOKIES.get('success_logins', 0)
             success_logins = int(success_logins) + 1
-            response = redirect('itemslist')
+            response = redirect('product_list')
             response.set_cookie('success_logins', success_logins)
             return response
         else:
