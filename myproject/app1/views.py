@@ -36,21 +36,6 @@ def item_list(request):
 def home(request):
     return render(request, 'home.html')
 
-@login_required
-def view_cart(request):
-    print("request.session", request.session)
-    request.session = {
-        "id" : "101",
-        "value" : "dfsagb",
-        "cart" : ["dress", "phone", "book"]
-    }
-
-    cart = request.session.get('cart', [])
-    print("cart", cart)
-
-    return render(request, 'cart.html', {'cart': cart})
-
-
 
 def category_form(request):
     category_form = CategoryForm
