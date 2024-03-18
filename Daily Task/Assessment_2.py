@@ -506,19 +506,36 @@ menu.display_menu()
 
 20. Create a Python library with the function to input the values with expectation handling and demonstrate with the example.
 
+# input_handler.py file
 def get_input(prompt, data_type):
+    """
+    Prompt the user for input and handle input validation using exception handling.
+
+    Args:
+        prompt (str): The message to prompt the user for input.
+        data_type (type): The desired data type to which the input should be converted.
+
+    Returns:
+        Any: The validated user input of the specified data type.
+    """
     while True:
         try:
             user_input = data_type(input(prompt))
             return user_input
         except ValueError:
-            print("Invalid input. Please try again.")
+            print("Invalid input. Please enter a valid value of the specified data type.")
 
 
-if __name__ == "__main__":
+# Main file
+from input_handler import get_input
+
+def main():
     celsius = get_input("Enter the temperature in Celsius: ", float)
     fahrenheit = (celsius * 9 / 5) + 32
     print("The temperature in Fahrenheit is:", fahrenheit)
+
+if __name__ == "__main__":
+    main()
 
 
 21. Write a Python program that executes an operation on a list and handles an IndexError exception if the index is out of range.
