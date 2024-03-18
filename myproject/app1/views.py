@@ -8,6 +8,10 @@ from .forms import CategoryForm, ModelProductForm, RegularProductForm
 def home(request):
     return render(request, 'home.html')
 
+def login(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+
 
 def category_form(request):
     category_form = CategoryForm
