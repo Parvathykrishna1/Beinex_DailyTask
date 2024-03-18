@@ -29,9 +29,9 @@ def user_logout(request):
     return redirect('login')
 
 @login_required
-def item_list(request):
-    items = Item.objects.all()
-    return render(request, 'itemslist.html', {'items': items})
+def product_list(request):
+    products = Product.objects.all()
+    return render(request, 'product_list.html', {'products': products})
 
 def home(request):
     return render(request, 'home.html')
