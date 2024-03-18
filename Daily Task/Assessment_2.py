@@ -639,34 +639,35 @@ main()
 
 25.  Quiz Game in Python
 
-    questions = [
-        {"prompt": "What color is the sky?\n(a) Blue\n(b) Red\n(c) Green\n", "answer": "a"},
-        {"prompt": "What animal says 'meow'?\n(a) Dog\n(b) Cat\n(c) Bird\n", "answer": "b"},
-        {"prompt": "How many legs does a cat have?\n(a) 2\n(b) 4\n(c) 6\n", "answer": "b"},
-    ]
-    
-    
-    def run_quiz(questions):
-        score = 0
-        for question in questions:
-            print(question["prompt"])
-            answer = input("Enter your answer (a, b, or c): ").lower()
-            if answer == question["answer"]:
-                score += 1
-                print("Correct!")
-            else:
-                print("Incorrect!")
-        print(f"You got {score}/{len(questions)} correct.")
-    
-        percentage_score = (score / len(questions)) * 100
-    
-        if percentage_score >= 70:
-            print("Great job! You have a strong knowledge.")
-        elif 50 <= percentage_score < 70:
-            print("Not bad! You have some knowledge.")
+questions = [
+    {"prompt": "What color is the sky?\n(a) Blue\n(b) Red\n(c) Green\n", "answer": "a"},
+    {"prompt": "What animal says 'meow'?\n(a) Dog\n(b) Cat\n(c) Bird\n", "answer": "b"},
+    {"prompt": "How many legs does a cat have?\n(a) 2\n(b) 4\n(c) 6\n", "answer": "b"},
+]
+
+
+def run_quiz(questions):
+    score = 0
+    for question in questions:
+        print(question["prompt"])
+        answer = input("Enter your answer (a, b, or c): ").lower()
+        if answer == question["answer"]:
+            score += 1
+            print("Correct!")
         else:
-            print("Keep learning! You can do even better.")
-    
-    
-    print("Welcome to the Kids Quiz")
-    run_quiz(questions)
+            print("Incorrect!")
+    print(f"You got {score}/{len(questions)} correct.")
+
+    percentage_score = (score / len(questions)) * 100
+
+    if percentage_score >= 70:
+        print("Great job! You have a strong knowledge.")
+    elif 50 <= percentage_score < 70:
+        print("Not bad! You have some knowledge.")
+    else:
+        print("Keep learning! You can do even better.")
+
+
+print("Welcome to the Kids Quiz")
+run_quiz(questions)
+
