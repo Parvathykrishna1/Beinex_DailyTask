@@ -76,10 +76,6 @@ def product_modelForm(request):
         form = ModelProductForm()
     return render(request, 'product_modelform.html', {'form': form})
 
-def product_list(request):
-    products = Product.objects.all()
-    return render(request, 'product_list.html', {'products': products})
-
 def file_list(request):
     products = Product.objects.all()
     return render(request, 'file_list.html', {'products': products})
