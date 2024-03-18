@@ -523,16 +523,19 @@ if __name__ == "__main__":
 
 21. Write a Python program that executes an operation on a list and handles an IndexError exception if the index is out of range.
 
-list = [1, 2, 3, 4, 5]
+l = [1, 2, 3, 4, 5]
 
 try:
     index = int(input("Enter the index: "))
-    value = list[index]
+    value = l[index]
 
     print("Value at index", index, ":", value)
 
 except IndexError:
     print("Index is out of range.")
+
+except ValueError:
+    print("Please enter a valid integer index.")
 
 
 22. Write a Python program input and add two integers only and handle the exceptions.
