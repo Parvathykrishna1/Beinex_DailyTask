@@ -448,26 +448,20 @@ school.display_students()
 
 19. Write program for building restaurant menu using class in Python.
 
-
-class MenuItem:
-    def __init__(self, name, price, description):
+class Food:
+    def __init__(self, name, price):
         self.name = name
         self.price = price
-        self.description = description
 
     def __str__(self):
-        return f"{self.name}: ${self.price} - {self.description}"
-
-    def __repr__(self):
-        return f"MenuItem('{self.name}', {self.price}, '{self.description}')"
-
+        return f"{self.name}: ${self.price}"
 
 class Menu:
     def __init__(self):
         self.items = []
 
-    def add_item(self, item):
-        self.items.append(item)
+    def add_item(self, food_item):
+        self.items.append(food_item)
 
     def remove_item(self, name):
         for item in self.items:
@@ -479,27 +473,19 @@ class Menu:
 
     def display_menu(self):
         print("Menu:")
-        for item in self.items:
-            print(item)
+        for index, item in enumerate(self.items, start=1):
+            print(f"{index}. {item}")
 
 
-burger = MenuItem("Burger", 199.99, "A classic beef burger with cheese and lettuce")
-pizza = MenuItem(
-    "Pizza", 250, "Thin crust pizza with tomato sauce and mozzarella cheese"
-)
-salad = MenuItem(
-    "Salad", 0.20, "Fresh mixed greens with tomatoes, cucumbers, and dressing"
-)
-
+names = ['Coffee', 'Tea', 'Pizza', 'Burger', 'Fries', 'Apple', 'Donut', 'Cake']
+costs = [250, 150, 180, 70, 65, 55, 120, 350]
 menu = Menu()
-
-menu.add_item(burger)
-menu.add_item(pizza)
-menu.add_item(salad)
+for name, cost in zip(names, costs):
+    menu.add_item(Food(name, cost))
 
 menu.display_menu()
 
-menu.remove_item("Pizza")
+menu.remove_item('Pizza')
 
 menu.display_menu()
 
