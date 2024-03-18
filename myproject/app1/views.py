@@ -7,9 +7,6 @@ from .forms import CategoryForm, ModelProductForm, RegularProductForm
 
 
 # Create your views here.
-def home(request):
-    return render(request, 'home.html')
-
 def user_login(request):
     if request.method == 'POST':
         username = request.POST['username']
@@ -23,6 +20,14 @@ def user_login(request):
     return render(request, 'login.html')
 
 @login_required
+def user_logout(request):
+    logout(request)
+    return redirect('login')
+
+def home(request):
+    return render(request, 'home.html')
+
+@login_required
 def view_cart(request):
     print("request.session", request.session)
     request.session = {
@@ -30,6 +35,11 @@ def view_cart(request):
         "value" : "dfsagb",
         "cart" : ["dress", "phone", "book"]
     }
+
+    cart = request.session.get('cart', [])
+    print("cart", cart)
+
+    return render(request, 'cart.html', {'cart': cart})
 
 
 
