@@ -10,14 +10,27 @@ from .forms import CategoryForm, ModelProductForm, RegularProductForm
 def home(request):
     return render(request, 'home.html')
 
-def login(request):
+def user_login(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
         user = authenticate(request, username = username, password = password)
         if user is not None:
             login(request, user)
-            return redirect(''
+            return redirect('cart')
+        else:
+            return render(request, 'login.html', {'error_message':'Invalid login credentials'})
+    return render(request, 'login.html')
+
+@login_required
+def view_cart(request):
+    print("request.session", request.session)
+    request.session = {
+        "id" : "101",
+        "value" : "dfsagb",
+        "cart" : ["dress", "phone", "book"]
+    }
+
 
 
 def category_form(request):
