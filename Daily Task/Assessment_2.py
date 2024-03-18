@@ -537,7 +537,6 @@ except IndexError:
 
 22. Write a Python program input and add two integers only and handle the exceptions.
 
-"""
 RUN 1:
 Enter First Value: 10
 Enter Second Value: 20
@@ -551,7 +550,7 @@ Pls Input Integer Only invalid literal for int() with base 10: 'Hello'
 RUN 3:
 Enter First Value: 10
 Enter Second Value: 0
-Second Number Should Not Be Zero division by zero              """
+Second Number Should Not Be Zero division by zero              
 
 while True:
     try:
@@ -637,7 +636,7 @@ main()
 
 
 
-25.  Quiz Game in Python
+25. Quiz Game in Python
 
 questions = [
     {"prompt": "What color is the sky?\n(a) Blue\n(b) Red\n(c) Green\n", "answer": "a"},
