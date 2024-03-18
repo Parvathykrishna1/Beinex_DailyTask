@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Category, Product
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from .forms import CategoryForm, ModelProductForm, RegularProductForm
 
 
@@ -12,7 +14,7 @@ def login(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
-        user = authenticate(request, username = username)
+        user = authenticate(request, username = username, pas)
 
 
 def category_form(request):
