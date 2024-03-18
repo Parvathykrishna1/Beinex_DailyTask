@@ -602,37 +602,39 @@ while True:
     Paper covers rock.
     Scissors cut paper.
     
-    def determine_winner(player1_choice, player2_choice):
-        if player1_choice == player2_choice:
-            return "It's a tie!"
-        elif (player1_choice == 'rock' and player2_choice == 'scissors') or \
-             (player1_choice == 'paper' and player2_choice == 'rock') or \
-             (player1_choice == 'scissors' and player2_choice == 'paper'):
-            return "Player 1 wins!"
-        else:
-            return "Player 2 wins!"
-    
-    def main():
-        choices = ['rock', 'paper', 'scissors']
-    
-        while True:
-            player1_choice = input("Player 1, enter your choice (rock, paper, or scissors): ").lower()
-            if player1_choice not in choices:
-                print("Invalid choice. Please enter either 'rock', 'paper', or 'scissors'.")
-                continue
-    
-            player2_choice = input("Player 2, enter your choice (rock, paper, or scissors): ").lower()
-            if player2_choice not in choices:
-                print("Invalid choice. Please enter either 'rock', 'paper', or 'scissors'.")
-                continue
-    
-            print(determine_winner(player1_choice, player2_choice))
-    
-            play_again = input("Do you want to play again? (yes/no): ").lower()
-            if play_again != 'yes':
-                break
-    
-    main()
+def determine_winner(player1_choice, player2_choice):
+    if player1_choice == player2_choice:
+        return "It's a tie!", ""
+    elif (player1_choice == 'rock' and player2_choice == 'scissors') or \
+         (player1_choice == 'paper' and player2_choice == 'rock') or \
+         (player1_choice == 'scissors' and player2_choice == 'paper'):
+        return "Player 1", f"{player1_choice.capitalize()} smashes {player2_choice}."
+    else:
+        return "Player 2", f"{player2_choice.capitalize()} covers {player1_choice}."
+
+def main():
+    choices = ['rock', 'paper', 'scissors']
+
+    while True:
+        player1_choice = input("Player 1, enter your choice (rock, paper, or scissors): ").lower()
+        if player1_choice not in choices:
+            print("Invalid choice. Please enter either 'rock', 'paper', or 'scissors'.")
+            continue
+
+        player2_choice = input("Player 2, enter your choice (rock, paper, or scissors): ").lower()
+        if player2_choice not in choices:
+            print("Invalid choice. Please enter either 'rock', 'paper', or 'scissors'.")
+            continue
+
+        winner, reason = determine_winner(player1_choice, player2_choice)
+        print(f"{winner} wins! {reason}")
+
+        play_again = input("Do you want to play again? (yes/no): ").lower()
+        if play_again != 'yes':
+            break
+
+main()
+
 
 
 25.  Quiz Game in Python
