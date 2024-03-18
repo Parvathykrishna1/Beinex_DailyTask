@@ -297,11 +297,6 @@ class Notes:
             file.write(additional_note + "\n")
         print("Additional note added successfully.")
 
-    def clear(self):
-        self.content = ""
-        with open(self.file_name, 'w') as file:
-            file.write("")
-        print("Notes cleared successfully.")
 
     def search(self, keyword):
         if self.content:
@@ -342,10 +337,9 @@ def main():
         print("1 - Write Note (Overwrite existing)")
         print("2 - Add more Notes (Append)")
         print("3 - Read Notes")
-        print("4 - Clear Notes")
-        print("5 - Search Notes")
-        print("6 - Delete all Notes")
-        print("7 - Exit")
+        print("4 - Search Notes")
+        print("5 - Delete all Notes")
+        print("6 - Exit")
 
         choice = input("Enter your choice: ")
 
@@ -356,13 +350,11 @@ def main():
         elif choice == '3':
             notes.read()
         elif choice == '4':
-            notes.clear()
-        elif choice == '5':
             keyword = input("Enter keyword to search: ")
             notes.search(keyword)
-        elif choice == '6':
+        elif choice == '5':
             Notes.delete()
-        elif choice == '7':
+        elif choice == '6':
             print("Exiting program.")
             break
         else:
