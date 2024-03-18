@@ -11,6 +11,8 @@ def home(request):
 def login(request):
     if request.method == 'POST':
         username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username = username)
 
 
 def category_form(request):
